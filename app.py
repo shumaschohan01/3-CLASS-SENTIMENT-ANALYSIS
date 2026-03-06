@@ -8,7 +8,7 @@ import re, string
 # ----------------------------
 # Load trained model
 # ----------------------------
-model = tf.keras.models.load_model("sentiment_model.h5")
+model = tf.keras.models.load_model("SentimentAnalysis(me)_model.h5")  # make sure file is in the same folder
 
 # Load tokenizer
 with open("tokenizer.pkl", "rb") as f:
@@ -17,10 +17,8 @@ with open("tokenizer.pkl", "rb") as f:
 # ----------------------------
 # Preprocessing function
 # ----------------------------
-# Replace with your actual stopwords list
-stop_words = set([
-    "a", "an", "the", "is", "and", "or", "but", "on", "in", "with", "to", "for"
-])
+# Replace this stopwords list with your full list if you have
+stop_words = set(["a", "the", "is", "and", "or", "but", "on", "in", "with", "to", "for"])
 
 def preprocessings(text):
     text = str(text)
@@ -31,20 +29,28 @@ def preprocessings(text):
     return text
 
 # ----------------------------
-# Mapping output to sentiment
+# Sentiment mapping
 # ----------------------------
-sentiment_map = {0: "negative", 1: "neutral", 2: "positive"}
+# Based on your snippet
+sentiment_map = {-1: "negative", 0: "neutral", 1: "positive"}
 
 # ----------------------------
 # Prediction function
 # ----------------------------
-def predict_sentiment(text):
-    text = preprocessings(text)
-    seq = tok.texts_to_sequences([text])
-    seq_padded = pad_sequences(seq, maxlen=81, padding='post')
+def predict_sentiment(new_text):
+    # 1. Preprocess
+    new_text = preprocessings(new_text)
+
+    # 2. Convert to sequence
+    seq = tok.texts_to_sequences([new_text])
+    seq_padded = pad_sequences(seq, maxlen=108, padding='post')
+
+    # 3. Predict
     pred_prob = model.predict(seq_padded)
     pred_class = pred_prob.argmax(axis=1)[0]
-    return sentiment_map[pred_class]
+
+    # 4. Map to sentiment
+    return sentiment_map.get(pred_class, "neutral")  # fallback to neutral
 
 # ----------------------------
 # Gradio interface
@@ -54,7 +60,13 @@ iface = gr.Interface(
     inputs=gr.Textbox(lines=2, placeholder="Enter your review here..."),
     outputs="text",
     title="3-Class Sentiment Analysis",
-    description="Type a review and see if it is negative, neutral, or positive!"
+    description="Type a review and see if it is negative, neutral, or positive!",
+    examples=[
+        ["I love this product!"],
+        ["It's okay, nothing special."],
+        ["I hated it, very bad experience."],
+        ["great day looks like dream"]
+    ]
 )
 
 # Launch the app and generate a shareable public link
