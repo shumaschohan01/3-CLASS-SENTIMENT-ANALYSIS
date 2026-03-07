@@ -11,7 +11,7 @@ The application is deployed using **Gradio** and hosted on **Hugging Face Spaces
 
 ## Live Demo
 
-🔗 [https://your-username-sentiment-analysis.hf.space](https://huggingface.co/spaces/ShumasChohan/Sentiment-Analysis-WebApp)
+🔗 (https://huggingface.co/spaces/ShumasChohan/Sentiment-Analysis-WebApp)
 
 ---
 
@@ -70,28 +70,25 @@ Sentiment Classes:
 
 Clone the repository:
 
-```
 git clone https://github.com/shumaschohan01/3-CLASS-SENTIMENT-ANALYSIS.git
 cd 3-CLASS-SENTIMENT-ANALYSIS
 ```
 
 Install dependencies:
 
-```
 pip install -r requirements.txt
-```
+
+---
 
 Run the application:
 
-```
 python app.py
-```
+
+---
 
 The app will start at:
 
-```
-[http://127.0.0.1:7860](https://huggingface.co/spaces/ShumasChohan/Sentiment-Analysis-WebApp)
-```
+(https://huggingface.co/spaces/ShumasChohan/Sentiment-Analysis-WebApp)
 
 ---
 
@@ -139,4 +136,4 @@ Your Name
 Aspiring **Machine Learning Engineer / Data Scientist**
 
 Connect with me on LinkedIn:
-https://linkedin.com/in/yourprofile
+(https://www.linkedin.com/in/shumas-kashif-chohan)
