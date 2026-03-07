@@ -116,8 +116,6 @@ Output:
 
 ```
 Negative
-```
-
 ---
 
 ## Future Improvements
@@ -127,7 +125,7 @@ Negative
 * Deploy with GPU support
 * Add visualization of prediction confidence
 
----
+
 
 ## Author
 
@@ -136,4 +134,4 @@ Your Name
 Aspiring **Machine Learning Engineer / Data Scientist**
 
 Connect with me on LinkedIn:
-(https://www.linkedin.com/in/shumas-kashif-chohan)
+https://www.linkedin.com/in/shumas-kashif-chohan
